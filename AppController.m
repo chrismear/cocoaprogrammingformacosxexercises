@@ -43,4 +43,10 @@
 	[NSBundle loadNibNamed:@"About" owner:self];
 }
 
+- (BOOL)applicationShouldOpenUntitledFile:(NSApplication *)sender
+{
+	NSLog(@"applicationShouldOpenUntitledFile:");
+	return [[NSUserDefaults standardUserDefaults] boolForKey:BNREmptyDocKey];
+}
+
 @end
