@@ -11,6 +11,9 @@
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
 		833417930F6EF2040049F95C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 833417920F6EF2040049F95C /* Person.m */; };
 		83E6D6B10FD936FA0088D7E7 /* BBall.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D6B00FD936F90088D7E7 /* BBall.icns */; };
+		83E6D7050FD95BCD0088D7E7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D7040FD95BCD0088D7E7 /* AppController.m */; };
+		83E6D70B0FD95C8A0088D7E7 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */; };
+		83E6D70F0FD95CDE0088D7E7 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -34,6 +37,11 @@
 		833417910F6EF2040049F95C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		833417920F6EF2040049F95C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		83E6D6B00FD936F90088D7E7 /* BBall.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = BBall.icns; sourceTree = "<group>"; };
+		83E6D7030FD95BCD0088D7E7 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		83E6D7040FD95BCD0088D7E7 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		83E6D7090FD95C8A0088D7E7 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* RaiseMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaiseMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,10 +99,14 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				83E6D7090FD95C8A0088D7E7 /* PreferenceController.h */,
+				83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */,
 				833417910F6EF2040049F95C /* Person.h */,
 				833417920F6EF2040049F95C /* Person.m */,
 				2A37F4AEFDCFA73011CA2CEA /* MyDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */,
+				83E6D7030FD95BCD0088D7E7 /* AppController.h */,
+				83E6D7040FD95BCD0088D7E7 /* AppController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -117,6 +129,7 @@
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
 				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
+				83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -178,6 +191,7 @@
 				1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */,
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
 				83E6D6B10FD936FA0088D7E7 /* BBall.icns in Resources */,
+				83E6D70F0FD95CDE0088D7E7 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +205,8 @@
 				8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				833417930F6EF2040049F95C /* Person.m in Sources */,
+				83E6D7050FD95BCD0088D7E7 /* AppController.m in Sources */,
+				83E6D70B0FD95C8A0088D7E7 /* PreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
