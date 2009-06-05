@@ -14,6 +14,7 @@
 		83E6D7050FD95BCD0088D7E7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D7040FD95BCD0088D7E7 /* AppController.m */; };
 		83E6D70B0FD95C8A0088D7E7 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */; };
 		83E6D70F0FD95CDE0088D7E7 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */; };
+		83E6D74B0FD95F680088D7E7 /* About.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D74A0FD95F680088D7E7 /* About.xib */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -42,6 +43,7 @@
 		83E6D7090FD95C8A0088D7E7 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		83E6D74A0FD95F680088D7E7 /* About.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = About.xib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* RaiseMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaiseMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 				1DDD58280DA1D0D100B32029 /* MyDocument.xib */,
 				1DDD582A0DA1D0D100B32029 /* MainMenu.xib */,
 				83E6D70E0FD95CDE0088D7E7 /* Preferences.xib */,
+				83E6D74A0FD95F680088D7E7 /* About.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */,
 				83E6D6B10FD936FA0088D7E7 /* BBall.icns in Resources */,
 				83E6D70F0FD95CDE0088D7E7 /* Preferences.xib in Resources */,
+				83E6D74B0FD95F680088D7E7 /* About.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
