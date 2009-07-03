@@ -14,8 +14,19 @@
 
 - (id)init
 {
-	[super init];
+	if (![super init]) {
+		return nil;
+	}
+	
 	employees = [[NSMutableArray alloc] init];
+	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc addObserver:self
+		   selector:@selector(handleColorChange:)
+			   name:BNRColorChangedNotification
+			 object:nil];
+	NSLog(@"Registered with notification center");
+	
     return self;
 }
 
@@ -187,9 +198,18 @@ context:(void *)context
 				   select:YES];
 }
 
+- (void)handleColorChange:(NSNotification *)note{
+	NSLog(@"Received notification: %@", note);
+	NSColor *color = [[note userInfo] objectForKey:@"color"];
+	[tableView setBackgroundColor:color];
+}
+
+
 - (void)dealloc
 {
 	[self setEmployees:nil];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	[nc removeObserver:self];
 	[super dealloc];
 }
 
