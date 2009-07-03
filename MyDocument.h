@@ -22,4 +22,5 @@
 - (IBAction)createEmployee:(id)sender;
 - (void)startObservingPerson:(Person *)person;
 - (void)stopObservingPerson:(Person *)person;
+- (IBAction)removeEmployee:(id)sender;
 @end

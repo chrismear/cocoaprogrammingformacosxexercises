@@ -204,6 +204,35 @@ context:(void *)context
 	[tableView setBackgroundColor:color];
 }
 
+- (IBAction)removeEmployee:(id)sender {
+	NSArray *selectedPeople = [employeeController selectedObjects];
+	NSAlert *alert = [NSAlert alertWithMessageText:@"Delete?"
+									 defaultButton:@"Delete"
+								   alternateButton:@"Cancel"
+									   otherButton:@"Keep, but no raise"
+						 informativeTextWithFormat:@"Do you really want to delete %d people?",
+					  [selectedPeople count]];
+	NSLog(@"Starting alert sheet");
+	[alert beginSheetModalForWindow:[tableView window]
+					  modalDelegate:self
+					 didEndSelector:@selector(alertEnded:code:context:)
+						contextInfo:NULL];
+}
+
+- (void)alertEnded:(NSAlert *)alert
+			  code:(int)choice
+		   context:(void *)v
+{
+	NSLog(@"Alert sheet ended");
+	if (choice == NSAlertDefaultReturn) {
+		[employeeController remove:nil];
+	} else if (choice == NSAlertOtherReturn) {
+		NSArray *selectedPeople = [employeeController selectedObjects];
+		for (Person *person in selectedPeople) {
+			[person setExpectedRaise:0.0];
+		}
+	}
+}
 
 - (void)dealloc
 {
