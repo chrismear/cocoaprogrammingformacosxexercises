@@ -49,4 +49,9 @@
 	return [[NSUserDefaults standardUserDefaults] boolForKey:BNREmptyDocKey];
 }
 
+- (void)applicationDidResignActive:(NSNotification *)notification
+{
+	NSLog(@"app resigned active");
+}
+
 @end
