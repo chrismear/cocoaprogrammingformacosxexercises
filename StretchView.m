@@ -23,9 +23,12 @@
 		NSPoint p = [self randomPoint];
 		[path moveToPoint:p];
 		int i;
+		NSPoint cp1, cp2;
 		for (i = 0; i < 15; i++) {
 			p = [self randomPoint];
-			[path lineToPoint:p];
+			cp1 = [self randomPoint];
+			cp2 = [self randomPoint];
+			[path curveToPoint:p controlPoint1:cp1 controlPoint2:cp2];
 		}
 		[path closePath];
     }
