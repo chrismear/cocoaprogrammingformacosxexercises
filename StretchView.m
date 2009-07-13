@@ -31,6 +31,8 @@
 			[path curveToPoint:p controlPoint1:cp1 controlPoint2:cp2];
 		}
 		[path closePath];
+		
+		opacity = 1.0;
     }
     return self;
 }
@@ -38,6 +40,7 @@
 - (void)dealloc
 {
 	[path release];
+	[image release];
 	[super dealloc];
 }
 
@@ -61,6 +64,17 @@
 	// Draw the path in white
 	[[NSColor whiteColor] set];
 	[path fill];
+	
+	if (image) {
+		NSRect imageRect;
+		imageRect.origin = NSZeroPoint;
+		imageRect.size = [image size];
+		NSRect drawingRect = imageRect;
+		[image drawInRect:drawingRect
+				 fromRect:imageRect
+				operation:NSCompositeSourceOver
+				 fraction:opacity];
+	}
 }
 
 #pragma mark Events
@@ -79,6 +93,27 @@
 - (void)mouseUp:(NSEvent *)event
 {
 	NSLog(@"mouseUp:");
+}
+
+#pragma mark Accessors
+
+- (void)setImage:(NSImage *)newImage
+{
+	[newImage retain];
+	[image release];
+	image = newImage;
+	[self setNeedsDisplay:YES];
+}
+
+- (float)opacity
+{
+	return opacity;
+}
+
+- (void)setOpacity:(float)x
+{
+	opacity = x;
+	[self setNeedsDisplay:YES];
 }
 
 @end
