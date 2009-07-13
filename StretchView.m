@@ -101,6 +101,7 @@
 {
 	NSPoint p = [event locationInWindow];
 	currentPoint = [self convertPoint:p fromView:nil];
+	[self autoscroll:event];
 	[self setNeedsDisplay:YES];
 }
 
