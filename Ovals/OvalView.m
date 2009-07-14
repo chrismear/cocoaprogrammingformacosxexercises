@@ -7,17 +7,47 @@
 //
 
 #import "OvalView.h"
-
+#import "Oval.h"
 
 @implementation OvalView
 
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        ovals = [[NSMutableArray alloc] initWithCapacity:10];
 		ovalBeingDrawn = NO;
     }
     return self;
+}
+
+- (id)dataSource
+{
+	return dataSource;
+}
+
+- (void)setDataSource:(id)newDataSource
+{
+	dataSource = newDataSource;
+}
+
+- (NSMutableArray *)ovals
+{
+	if([dataSource respondsToSelector:@selector(ovals)]) {
+		return [dataSource ovals];
+	} else {
+		[NSException raise:NSInternalInconsistencyException format:@"dataSource doesn't respond to ovals"];
+		NSMutableArray *emptyOvals = [[NSMutableArray alloc] init];
+		[emptyOvals autorelease];
+		return emptyOvals;
+	}
+}
+
+- (void)createOval:(Oval *)newOval
+{
+	if([dataSource respondsToSelector:@selector(createOval:)]) {
+		[dataSource createOval:newOval];
+	} else {
+		[NSException raise:NSInternalInconsistencyException format:@"dataSource doesn't respond to createOval:"];
+	}
 }
 
 - (NSRect)currentRect
@@ -34,18 +64,17 @@
 	[[NSColor greenColor] set];
 	
 	// Draw the existing ovals
-	NSValue *ovalRectValue;
-	NSRect ovalRect;
+	NSMutableArray *ovals = [self ovals];
+	Oval *oval;
 	NSBezierPath *ovalPath;
-	for (ovalRectValue in ovals) {
-		ovalRect = [ovalRectValue rectValue];
-		ovalPath = [NSBezierPath bezierPathWithOvalInRect:ovalRect];
+	for (oval in ovals) {
+		ovalPath = [NSBezierPath bezierPathWithOvalInRect:[oval rect]];
 		[ovalPath fill];
 	}
 	
 	// Draw the oval in the process of being specified
 	if (ovalBeingDrawn) {
-		ovalRect = [self currentRect];
+		NSRect ovalRect = [self currentRect];
 		ovalPath = [NSBezierPath bezierPathWithOvalInRect:ovalRect];
 		[ovalPath fill];
 	}
@@ -73,9 +102,11 @@
 {
 	NSPoint p = [event locationInWindow];
 	currentPoint = [self convertPoint:p fromView:nil];
+	
 	NSRect newOvalRect = [self currentRect];
-	NSValue *newOvalRectValue = [NSValue valueWithRect:newOvalRect];
-	[ovals addObject:newOvalRectValue];
+	Oval *newOval = [[Oval alloc] initWithRect:newOvalRect];
+	[self createOval:newOval];
+	[newOval release];
 	
 	ovalBeingDrawn = NO;
 	
