@@ -8,6 +8,7 @@
 
 #import "MyDocument.h"
 #import "Oval.h"
+#import "OvalView.h"
 
 @implementation MyDocument
 
@@ -70,9 +71,28 @@
 
 - (void)createOval:(Oval *)newOval
 {
-	NSLog(@"adding new oval");
-	[ovals addObject:newOval];
+	NSInteger newIndex = [ovals count];
 	
-	[self updateChangeCount:NSChangeDone];
+	NSUndoManager *undoManager = [self undoManager];
+	[[undoManager prepareWithInvocationTarget:self] removeOvalAtIndex:newIndex];
+	if (![undoManager isUndoing]) {
+		[undoManager setActionName:@"Insert Oval"];
+	}
+	
+	[ovals addObject:newOval];
+	[ovalView setNeedsDisplay:YES];
+}
+
+- (void)removeOvalAtIndex:(NSInteger)index
+{
+	Oval *removedOval = [ovals objectAtIndex:index];
+	NSUndoManager *undoManager = [self undoManager];
+	[[undoManager prepareWithInvocationTarget:self] createOval:removedOval];
+	if (![undoManager isUndoing]) {
+		[undoManager setActionName:@"Delete Oval"];
+	}
+	
+	[ovals removeObjectAtIndex:index];
+	[ovalView setNeedsDisplay:YES];
 }
 @end

@@ -9,12 +9,15 @@
 
 #import <Cocoa/Cocoa.h>
 @class Oval;
+@class OvalView;
 
 @interface MyDocument : NSDocument
 {
 	NSMutableArray *ovals;
+	IBOutlet OvalView *ovalView;
 }
 - (NSMutableArray *)ovals;
 - (void)setOvals:(NSMutableArray *)newOvals;
 - (void)createOval:(Oval *)newOval;
+- (void)removeOvalAtIndex:(NSInteger)index;
 @end
