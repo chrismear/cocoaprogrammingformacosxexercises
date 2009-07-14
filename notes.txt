@@ -1,0 +1,113 @@
+NSObject
+  - (id) init
+  Initialises the receiver after memory for it has been allocated. Generally coupled with an alloc message, like:
+  
+    TheClass *newObject = [[TheClass alloc] init];
+  
+  - (NSString *)description
+  Returns an NSString that describes the receiver.
+  
+  - (BOOL)isEqual:(id)anObject
+  Returns YES if the receiver and anObject are equal (in some sense determined by the class); otherwise, returns NO.
+
+NSArray
+Immutable. Cannot contain nil.
+  - (unsigned)count
+  
+  - (id)objectAtIndex:(unsigned)i
+  
+  - (id)lastObject
+  Returns object with highest index value, or nil if array is empty.
+  
+  - (BOOL)containsObject:(id)anObject
+  Returns YES if anObject is in the array.
+  
+  - (unsigned)indexOfObject:(id)anObject
+  Returns the lowest index of anObject in the array, or NSNotFound if anObject is not in the array.
+
+NSMutableArray
+Inherits from NSArray and adds ability to add and remove objects. To create from an immutable array, use NSArray's mutableCopy method. Cannot contain null, but can contain the NSNull object to represent emptiness:
+
+  [myArray addObject:[NSNull null]];
+
+  - (void)addObject:(id)anObject
+  Inserts anObject at the end of the array.
+  
+  - (void)addObjectsFromArray:(NSArray *)otherArray
+  Adds the objects in otherArray to the end of the receiver.
+  
+  - (void)insertObject:(id)anObject atIndex:(unsigned)index
+  
+  - (void)removeAllObjects
+  
+  - (void)removeObject:(id)anObject
+  Removes all occurrences of anObject from the array, matches being determined by isEqual.
+  
+  -(void)removeObjectAtindex:(unsigned)index
+
+NSString
+A buffer of Unicode characters. Can use @"..." to create a string object constant from a 7-bit ASCII encoding.
+  
+  - (id)initWithFormat:(NSString *)format, ...
+  Works like sprintf.
+  
+  - (unsigned int)length
+  
+  - (NSString *)stringByAppendingString:(NSString *)aString
+  Returns a string object made by appending aString to the receiver.
+
+NSCalendarDate
+Contains a date and time, time zone, and format string. Essentially immutable; seldom need to create a copy of an NSCalendarDate object.
+
+  + (id)calendarDate
+  Creates and returns a calendar date initialized to the current date and time in the default format for the locale, and with the time zone of the machine.
+  
+  + (id)dateWithYear:(int)year
+               month:(unsigned)month
+                 day:(unsigned)day
+                hour:(unsigned)hour
+              minute:(unsigned)minute
+              second:(unsigned)second
+            timeZone:(NSTimeZone *)aTimeZone
+  Returns an autoreleased object. Can use NSTimeZone's timeZoneWithName class method to get a time zone.
+  
+  - (NSCalendarDate *)dateByAddingYears:(int)year
+                                 months:(int)month
+                                   days:(int)day
+                                  hours:(int)hour
+                                minutes:(int)minute
+                                seconds:(int)second
+  
+  - (int)dayOfMonth
+  - (int)dayOfWeek
+  - (int)dayOfYear
+  - (int)hourOfDay
+  - (int)minuteOfHour
+  - (int)monthOfYear
+  
+  - (void)setCalendarFormat:(NSString *)format
+  
+  - (NSDate *)laterDate:(NSDate *)anotherDate
+  Returns the later of the two dates.
+  
+  - (NSTimeINterval)timeIntervalSinceDate:(NSDate *)anotherDate
+  Returns the interval in seconds between the receiver and anotherDate. If the receiver is earlier than anotherDate, the return value is negative. NSTimeInterval is equivalent to double.
+
+Rules Concerning Release
+  Objects created by alloc, new, copy or mutableCopy have a retain count of 1 and are not in the autorelease pool.
+  If you get an object by any other method, assume that it has a retain count of 1 and is in the autorelease pool. If you do not wish it to be deallocated with the current autorelease pool, you must retain it.
+
+Idiom for setter methods
+  - (void)setFoo:(NSCalendarDate *)x
+  {
+    [x retain];
+    [foo release];
+    foo = x;
+  }
+
+Attributes of a property
+  @property (attributes) type name;
+  where attributes are:
+    readwrite or readonly
+    assign, retain or copy
+    nonatomic
