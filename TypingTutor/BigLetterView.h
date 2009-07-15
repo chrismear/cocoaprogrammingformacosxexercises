@@ -13,10 +13,18 @@
 	NSColor *bgColor;
 	NSString *string;
 	NSMutableDictionary *attributes;
+	BOOL bold;
+	BOOL italic;
+	IBOutlet NSButton *boldButton;
+	IBOutlet NSButton *italicButton;
 }
 @property (retain, readwrite) NSColor *bgColor;
 @property (copy, readwrite) NSString *string;
+@property BOOL bold;
+@property BOOL italic;
 
 - (IBAction)savePDF:(id)sender;
+- (IBAction)boldButtonChanged:(id)sender;
+- (IBAction)italicButtonChanged:(id)sender;
 
 @end
