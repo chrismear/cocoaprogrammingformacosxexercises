@@ -11,7 +11,11 @@
 
 @interface PolynomialView : NSView {
 	NSMutableArray *polynomials;
+	BOOL blasted;
 }
 - (IBAction)createNewPolynomial:(id)sender;
 - (IBAction)deleteRandomPolynomial:(id)sender;
+- (IBAction)blastem:(id)sender;
+- (NSPoint)randomOffViewPosition;
+
 @end

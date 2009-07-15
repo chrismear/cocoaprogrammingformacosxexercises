@@ -100,4 +100,12 @@ static CGRect funcRect = {-20, 02, 40, 40};
 	[super finalize];
 }
 
+- (void)drawLayer:(CALayer *)layer
+		inContext:(CGContextRef)ctx
+{
+	CGRect cgb = [layer bounds];
+	[self drawInRect:cgb
+		   inContext:ctx];
+}
+
 @end
