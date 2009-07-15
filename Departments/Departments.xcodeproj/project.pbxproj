@@ -16,6 +16,8 @@
 		83E0538D100E71C700821260 /* DepartmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E0538C100E71C700821260 /* DepartmentView.xib */; };
 		83E05391100E723000821260 /* EmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E05390100E723000821260 /* EmployeeViewController.m */; };
 		83E05393100E724A00821260 /* EmployeeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83E05392100E724A00821260 /* EmployeeView.xib */; };
+		83E053A1100E767D00821260 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E0539E100E767D00821260 /* Employee.m */; };
+		83E053A2100E767D00821260 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E053A0100E767D00821260 /* Department.m */; };
 		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* MyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MyDocument.m */; settings = {ATTRIBUTES = (); }; };
@@ -44,6 +46,10 @@
 		83E0538F100E723000821260 /* EmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeeViewController.h; sourceTree = "<group>"; };
 		83E05390100E723000821260 /* EmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeeViewController.m; sourceTree = "<group>"; };
 		83E05392100E724A00821260 /* EmployeeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeView.xib; sourceTree = "<group>"; };
+		83E0539D100E767D00821260 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
+		83E0539E100E767D00821260 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		83E0539F100E767D00821260 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
+		83E053A0100E767D00821260 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Departments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Departments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -149,6 +155,10 @@
 		E1B74B1A0667B4A90069E3BA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				83E0539D100E767D00821260 /* Employee.h */,
+				83E0539E100E767D00821260 /* Employee.m */,
+				83E0539F100E767D00821260 /* Department.h */,
+				83E053A0100E767D00821260 /* Department.m */,
 				775BDEF0067A8BF0009058FE /* MyDocument.xcdatamodel */,
 			);
 			name = Models;
@@ -219,6 +229,8 @@
 				83E05388100E714000821260 /* ManagingViewController.m in Sources */,
 				83E0538B100E71AE00821260 /* DepartmentViewController.m in Sources */,
 				83E05391100E723000821260 /* EmployeeViewController.m in Sources */,
+				83E053A1100E767D00821260 /* Employee.m in Sources */,
+				83E053A2100E767D00821260 /* Department.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
