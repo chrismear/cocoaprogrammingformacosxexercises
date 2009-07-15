@@ -94,14 +94,32 @@
 	NSPoint p = [event locationInWindow];
 	downPoint = [self convertPoint:p fromView:nil];
 	currentPoint = downPoint;
+	
+	// Set up timer for smooth autoscrolling
+	[scrollTimer release];
+	scrollTimer = [[NSTimer scheduledTimerWithTimeInterval:0.05
+													target:self
+												  selector:@selector(performTimedAutoscroll)
+												  userInfo:nil
+												   repeats:YES] retain];
+	
 	[self setNeedsDisplay:YES];
 }
 
-- (void)mouseDragged:(NSEvent *)event
+//- (void)mouseDragged:(NSEvent *)event
+//{
+//	NSPoint p = [event locationInWindow];
+//	currentPoint = [self convertPoint:p fromView:nil];
+//	[self autoscroll:event];
+//	[self setNeedsDisplay:YES];
+//}
+
+- (void)performTimedAutoscroll
 {
-	NSPoint p = [event locationInWindow];
+	NSEvent *currentEvent = [NSApp currentEvent];
+	NSPoint p = [currentEvent locationInWindow];
 	currentPoint = [self convertPoint:p fromView:nil];
-	[self autoscroll:event];
+	[self autoscroll:currentEvent];
 	[self setNeedsDisplay:YES];
 }
 
@@ -109,6 +127,12 @@
 {
 	NSPoint p = [event locationInWindow];
 	currentPoint = [self convertPoint:p fromView:nil];
+	
+	// End autoscroll timer
+	[scrollTimer invalidate];
+	[scrollTimer release];
+	scrollTimer = nil;
+	
 	[self setNeedsDisplay:YES];
 }
 

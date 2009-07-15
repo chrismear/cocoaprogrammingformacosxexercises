@@ -15,6 +15,7 @@
 	float opacity;
 	NSPoint downPoint;
 	NSPoint currentPoint;
+	NSTimer *scrollTimer;
 }
 
 @property (readwrite) float opacity;
