@@ -20,4 +20,14 @@
 	return self;
 }
 
+// Take care of the delete key
+- (void)keyDown:(NSEvent *)e
+{
+	if (([e keyCode] == 51) || ([e keyCode] == 117)) {
+		[employeeController remove:nil];
+	} else {
+		[super keyDown:e];
+	}
+}
+
 @end

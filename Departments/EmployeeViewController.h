@@ -12,7 +12,7 @@
 
 
 @interface EmployeeViewController : ManagingViewController {
-
+	IBOutlet NSArrayController *employeeController;
 }
 
 @end
