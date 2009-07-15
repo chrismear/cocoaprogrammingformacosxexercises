@@ -17,6 +17,7 @@
 	BOOL italic;
 	IBOutlet NSButton *boldButton;
 	IBOutlet NSButton *italicButton;
+	NSEvent *mouseDownEvent;
 }
 @property (retain, readwrite) NSColor *bgColor;
 @property (copy, readwrite) NSString *string;
