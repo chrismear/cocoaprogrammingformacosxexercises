@@ -263,11 +263,16 @@
 - (void)writeToPasteboard:(NSPasteboard *)pb
 {
 	// Declare types
-	[pb declareTypes:[NSArray arrayWithObject:NSStringPboardType]
+	[pb declareTypes:[NSArray arrayWithObjects:NSStringPboardType, NSPDFPboardType, nil]
 			   owner:self];
 	
-	// Copy data to the pasteboard
+	// Copy string data to the pasteboard
 	[pb setString:string forType:NSStringPboardType];
+	
+	// Copy PDF data to the pasteboard
+	NSRect bounds = [self bounds];
+	NSData *pdfData = [self dataWithPDFInsideRect:bounds];
+	[pb setData:pdfData forType:NSPDFPboardType];
 }
 
 - (BOOL)readFromPasteboard:(NSPasteboard *)pb
