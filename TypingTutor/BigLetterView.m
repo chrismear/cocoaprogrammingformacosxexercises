@@ -12,29 +12,10 @@
 
 @implementation BigLetterView
 
-- (NSFont *)font
-{
-	NSFont *font = [NSFont fontWithName:@"Helvetica" size:75];
-	if (bold || italic) {
-		NSFontManager *fontManager = [NSFontManager sharedFontManager];
-		if (bold) {
-			NSLog(@"adding bold to font");
-			NSFont *newFont = [fontManager convertFont:font toHaveTrait:NSBoldFontMask];
-			font = newFont;
-		}
-		if (italic) {
-			NSLog(@"adding italic to font");
-			NSFont *newFont = [fontManager convertFont:font toHaveTrait:NSItalicFontMask];
-			font = newFont;
-		}
-	}
-	return font;
-}
-
 - (void)prepareAttributes
 {
 	attributes = [[NSMutableDictionary alloc] init];
-	[attributes setObject:[self font]
+	[attributes setObject:[NSFont fontWithName:@"Helvetica" size:75]
 				   forKey:NSFontAttributeName];
 	[attributes setObject:[NSColor redColor]
 				   forKey:NSForegroundColorAttributeName];
@@ -97,35 +78,11 @@
 	return string;
 }
 
-- (void)setBold:(BOOL)newBold
-{
-	NSLog(@"setting bold");
-	bold = newBold;
-	[self setNeedsDisplay:YES];
-}
-
-- (BOOL)bold
-{
-	return bold;
-}
-
-- (void)setItalic:(BOOL)newItalic
-{
-	NSLog(@"setting italic");
-	italic = newItalic;
-	[self setNeedsDisplay:YES];
-}
-
-- (BOOL)italic
-{
-	return italic;
-}
 
 #pragma mark Drawing
 
 - (void)drawStringCenteredIn:(NSRect)r
 {
-	[self prepareAttributes];
 	NSSize strSize = [string sizeWithAttributes:attributes];
 	NSPoint strOrigin;
 	strOrigin.x = r.origin.x + (r.size.width - strSize.width)/2;
@@ -243,28 +200,6 @@
 		NSAlert *a = [NSAlert alertWithError:error];
 		[a runModal];
 	}
-}
-
-#pragma mark FormattingButtons
-
-- (IBAction)boldButtonChanged:(id)sender
-{
-	NSLog(@"bold changed");
-	if ([boldButton state] == NSOnState) {
-		[self setBold:YES];
-	} else {
-		[self setBold:NO];
-	}
-}
-
-- (IBAction)italicButtonChanged:(id)sender
-{
-	NSLog(@"italic changed");
-	if ([italicButton state] == NSOnState) {
-		[self setItalic:YES];
-	} else {
-		[self setItalic:NO];
-	}	
 }
 
 
