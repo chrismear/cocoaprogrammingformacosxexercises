@@ -45,6 +45,9 @@
 	
 	linesPerPage = pageRect.size.height / lineHeight;
 	
+	// Leave space for page number and a blank line above
+	linesPerPage = linesPerPage - 2;
+	
 	range->location = 1;
 	
 	range->length = [people count] / linesPerPage;
@@ -93,6 +96,14 @@
 		NSString *raiseString = [NSString stringWithFormat:@"%4.1f%%", [p expectedRaise]];
 		[raiseString drawInRect:raiseRect withAttributes:attributes];
 	}
+	
+	NSRect pageNumberRect;
+	pageNumberRect.size.height = lineHeight;
+	pageNumberRect.size.width = pageRect.size.width;
+	pageNumberRect.origin.x = pageRect.origin.x;
+	pageNumberRect.origin.y = pageRect.size.height;
+	NSString *pageNumberString = [NSString stringWithFormat:@"%2d", (currentPage + 1)];
+	[pageNumberString drawInRect:pageNumberRect withAttributes:attributes];
 }
 
 @end
