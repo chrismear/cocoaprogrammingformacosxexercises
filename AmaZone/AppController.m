@@ -7,6 +7,7 @@
 //
 
 #import "AppController.h"
+#import <WebKit/WebKit.h>
 
 #define AWS_ID @"AKIAIQGTJS35BBAEF42A"
 
@@ -118,9 +119,20 @@
 	NSXMLNode *clickedItem = [itemNodes objectAtIndex:row];
 	NSString *urlString = [self stringForPath:@"DetailPageURL" ofNode:clickedItem];
 	
-	NSURL *url = [NSURL URLWithString:urlString];
-	[[NSWorkspace sharedWorkspace] openURL:url];
+	[webView setMainFrameURL:urlString];
+	
+	// Show web sheet
+	[NSApp beginSheet:webSheet
+	   modalForWindow:mainWindow
+		modalDelegate:nil
+	   didEndSelector:NULL
+		  contextInfo:NULL];
 }
 
+- (IBAction)endWebSheet:(id)sender
+{
+	[NSApp endSheet:webSheet];
+	[webSheet orderOut:sender];
+}
 
 @end
