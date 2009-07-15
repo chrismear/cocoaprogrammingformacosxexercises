@@ -19,6 +19,14 @@
 				   forKey:NSFontAttributeName];
 	[attributes setObject:[NSColor redColor]
 				   forKey:NSForegroundColorAttributeName];
+	
+	NSShadow *shadow = [[NSShadow alloc] init];
+	[shadow setShadowOffset:NSMakeSize(3.0, -3.0)];
+	[shadow setShadowBlurRadius:3.0];
+	[shadow setShadowColor:[NSColor blackColor]];
+	[attributes setObject:shadow
+				   forKey:NSShadowAttributeName];
+	[shadow release];
 }
 
 - (id)initWithFrame:(NSRect)frame {
