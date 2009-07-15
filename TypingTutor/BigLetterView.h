@@ -16,4 +16,7 @@
 }
 @property (retain, readwrite) NSColor *bgColor;
 @property (copy, readwrite) NSString *string;
+
+- (IBAction)savePDF:(id)sender;
+
 @end
