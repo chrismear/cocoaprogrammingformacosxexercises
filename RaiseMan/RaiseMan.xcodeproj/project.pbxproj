@@ -10,6 +10,7 @@
 		1DDD582C0DA1D0D100B32029 /* MyDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58280DA1D0D100B32029 /* MyDocument.xib */; };
 		1DDD582D0DA1D0D100B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD582A0DA1D0D100B32029 /* MainMenu.xib */; };
 		833417930F6EF2040049F95C /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 833417920F6EF2040049F95C /* Person.m */; };
+		83A15310100E32AD0028E518 /* PeopleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A1530F100E32AD0028E518 /* PeopleView.m */; };
 		83BAC64E0FFE4A7C00485100 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83BAC64C0FFE4A7C00485100 /* Localizable.strings */; };
 		83E6D6B10FD936FA0088D7E7 /* BBall.icns in Resources */ = {isa = PBXBuildFile; fileRef = 83E6D6B00FD936F90088D7E7 /* BBall.icns */; };
 		83E6D7050FD95BCD0088D7E7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D7040FD95BCD0088D7E7 /* AppController.m */; };
@@ -38,6 +39,8 @@
 		32DBCF750370BD2300C91783 /* RaiseMan_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaiseMan_Prefix.pch; sourceTree = "<group>"; };
 		833417910F6EF2040049F95C /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		833417920F6EF2040049F95C /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		83A1530E100E32AD0028E518 /* PeopleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleView.h; sourceTree = "<group>"; };
+		83A1530F100E32AD0028E518 /* PeopleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleView.m; sourceTree = "<group>"; };
 		83BAC6450FFE499000485100 /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/MyDocument.xib; sourceTree = "<group>"; };
 		83BAC64D0FFE4A7C00485100 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		83BAC64F0FFE4AA000485100 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				83A1530E100E32AD0028E518 /* PeopleView.h */,
+				83A1530F100E32AD0028E518 /* PeopleView.m */,
 				83E6D7090FD95C8A0088D7E7 /* PreferenceController.h */,
 				83E6D70A0FD95C8A0088D7E7 /* PreferenceController.m */,
 				833417910F6EF2040049F95C /* Person.h */,
@@ -217,6 +222,7 @@
 				833417930F6EF2040049F95C /* Person.m in Sources */,
 				83E6D7050FD95BCD0088D7E7 /* AppController.m in Sources */,
 				83E6D70B0FD95C8A0088D7E7 /* PreferenceController.m in Sources */,
+				83A15310100E32AD0028E518 /* PeopleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
